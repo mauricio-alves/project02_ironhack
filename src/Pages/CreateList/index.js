@@ -49,67 +49,77 @@ export function CreateList() {
 
   return (
     <>
-      <div>
-        <h1>Crie Sua Lista de Compras</h1>
-        <form>
-          <label htmlFor="owner-input">Nome :</label>
-          <input
-            id="owner-input"
-            type="text"
-            name="owner"
-            value={form.owner}
-            onChange={handleChange}
-          />
+      <h1>Crie Sua Lista de Compras</h1>
+      <form>
+        <label htmlFor="owner-input">Nome :</label>
+        <input
+          id="owner-input"
+          type="text"
+          name="owner"
+          value={form.owner}
+          onChange={handleChange}
+        />
 
-          <label htmlFor="date-input">Data :</label>
-          <input
-            id="date-input"
-            type="date"
-            name="date"
-            value={form.date}
-            onChange={handleChange}
-          />
+        <label htmlFor="date-input">Data :</label>
+        <input
+          id="date-input"
+          type="date"
+          name="date"
+          value={form.date}
+          onChange={handleChange}
+        />
 
-          <button
-            className="btn btn-primary"
-            type="submit"
-            onClick={handleSubmit}
-          >
-            Criar
-          </button>
-        </form>
-        <Search search={search} setSearch={setSearch} />
-        <div id="cardsCreate">
-          {fruits
-            .filter((currentFruit) => {
-              return currentFruit.name
-                .toLowerCase()
-                .includes(search.toLowerCase());
-            })
-            .map((currentFruit) => {
-              return (
-                <>
+        <button
+          className="btn btn-primary"
+          type="submit"
+          onClick={handleSubmit}
+        >
+          Criar
+        </button>
+      </form>
+      <Search search={search} setSearch={setSearch} />
+      <div id="bodyCreate">
+        {fruits
+          .filter((currentFruit) => {
+            return currentFruit.name
+              .toLowerCase()
+              .includes(search.toLowerCase());
+          })
+          .map((currentFruit) => {
+            return (
+              <>
+                <div id="cardsCreate">
                   <Card props={currentFruit}></Card>
-                  <input
-                    type="number"
-                    name = 'quantity'
-                    value={form.quantity}
-                    onChange={handleChange}
-                  />
-                  <button
-                    onClick={() => {
-                      setForm({
-                        ...form,
-                        fruits: [...form.fruits, currentFruit],
-                      });
-                    }}
-                  >
-                    Adicionar
-                  </button>
-                </>
-              );
-            })}
-        </div>
+                  <div id="footerCard">
+                    <div id="miniFooter">
+                      <label htmlFor="quantity">
+                        <b>Quantidade :</b>
+                      </label>
+                      <input
+                        id="quantity"
+                        type="number"
+                        name="quantity"
+                        value={form.quantity}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <button
+                      className="btn btn-outline-info"
+                      id="buttonAdd"
+                      onClick={() => {
+                        setForm({
+                          ...form,
+                          fruits: [...form.fruits, currentFruit],
+                        });
+                      }}
+                    >
+                      Adicionar
+                    </button>
+                  </div>
+                </div>
+              </>
+            );
+          })}
       </div>
     </>
   );

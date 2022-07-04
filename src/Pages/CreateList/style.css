@@ -1,4 +1,33 @@
 #cardsCreate {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+#bodyCreate {
+  display: flex;
+  flex-wrap: wrap;
+  /* margin: 50px 50px; */
+}
+#quantity {
+  width: 50px;
+  text-align: center;
+  margin: 10px;
+}
+#buttonAdd {
+  width: 200px;
+  justify-content: center;
+  margin: 0 auto;
+}
+#footerCard {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+#miniFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
