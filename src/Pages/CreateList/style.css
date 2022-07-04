@@ -1,0 +1,4 @@
+#cardsCreate {
+  display: flex;
+  flex-wrap: wrap;
+}
