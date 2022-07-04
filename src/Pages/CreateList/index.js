@@ -4,13 +4,16 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { Card } from "../../components/CardFruits";
 import { useNavigate } from "react-router-dom";
+import { Search } from "../../components/Search";
 // import { Toaster, toast } from "react-hot-toast";
 
 export function CreateList() {
+  const [search, setSearch] = useState("");
   const [fruits, setFruits] = useState([]);
   const [form, setForm] = useState({
     owner: "",
     date: "",
+    quantity: 0,
     fruits: [],
   });
 
@@ -75,15 +78,37 @@ export function CreateList() {
             Criar
           </button>
         </form>
+        <Search search={search} setSearch={setSearch} />
         <div id="cardsCreate">
-          {fruits.map((currentFruit) => {
-            return (
-              <>
-                <Card props={currentFruit}></Card>
-                <button className="">Adicionar</button>
-              </>
-            );
-          })}
+          {fruits
+            .filter((currentFruit) => {
+              return currentFruit.name
+                .toLowerCase()
+                .includes(search.toLowerCase());
+            })
+            .map((currentFruit) => {
+              return (
+                <>
+                  <Card props={currentFruit}></Card>
+                  <input
+                    type="number"
+                    name = 'quantity'
+                    value={form.quantity}
+                    onChange={handleChange}
+                  />
+                  <button
+                    onClick={() => {
+                      setForm({
+                        ...form,
+                        fruits: [...form.fruits, currentFruit],
+                      });
+                    }}
+                  >
+                    Adicionar
+                  </button>
+                </>
+              );
+            })}
         </div>
       </div>
     </>
