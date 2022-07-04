@@ -1,6 +1,6 @@
 import "./style.css";
 
-export function Card({ props }) {
+export function Card({ props, quant }) {
   return (
     <>
       <div id="cardFruit">
