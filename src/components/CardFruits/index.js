@@ -4,11 +4,11 @@ export function Card({ props, quant }) {
   return (
     <>
       <div id="cardFruit">
-        <div className="" style={{ width: "300px" }}>
+        <div className="" style={{ width: "320px" }}>
           <img className="card-img-top" src={props.image} alt="imagecard" />
           <div className="card-body">
-            <h3 id="titleMovie">{props.name}</h3>
-            <hr style={{ color: "red" }}></hr>
+            <h3 id="nameFruit">{props.name}</h3>
+            <hr></hr>
             {/* <p className="card-text">{props.family}</p> */}
             <div id="footer">
               <h4>Tabela Nutricional</h4>

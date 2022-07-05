@@ -77,7 +77,7 @@ export function CreateList() {
           Criar
         </button>
       </form>
-      <Search search={search} setSearch={setSearch} />
+      <Search id="searchBar" search={search} setSearch={setSearch} />
       <div id="bodyCreate">
         {fruits
           .filter((currentFruit) => {

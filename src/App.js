@@ -11,7 +11,7 @@ import { Home } from "./Pages/Home";
 export function App() {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/create-list" element={<CreateList />} />

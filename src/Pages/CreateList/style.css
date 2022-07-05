@@ -1,13 +1,14 @@
 #cardsCreate {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 40px;
 }
 #bodyCreate {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 50px;
   /* margin: 50px 50px; */
 }
 #quantity {
@@ -30,4 +31,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#searchBar {
 }
