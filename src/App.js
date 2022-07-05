@@ -14,9 +14,9 @@ export function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/create-list" element={<CreatePage />} />
-        <Route path="/details-list/:id" element={<DetailsPage />} />
-        <Route path="/edit-list/:id" element={<EditPage />} />
+        <Route path="/create-page" element={<CreatePage />} />
+        <Route path="/details-page/:id" element={<DetailsPage />} />
+        <Route path="/edit-page/:id" element={<EditPage />} />
       </Routes>
       <Footer />
     </>

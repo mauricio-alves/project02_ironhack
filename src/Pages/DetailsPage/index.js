@@ -6,7 +6,7 @@ import { Card } from "../../components/CardFruits";
 export function DetailsPage() {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [userList, setUserList] = useState([]);
+  const [userList, setUserList] = useState([{ fruits: []}]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -40,9 +40,9 @@ export function DetailsPage() {
       <div>
         <div>
           <h1>Lista de: {userList.owner}</h1>
-          <h2>Título da lista: {userList.date}</h2>
+          <h2>Criada em: {userList.date}</h2>
           <div>
-            <Link to={`/edit-list/${id}`} className="btn btn-success mb-3">
+            <Link to={`/edit-page/${id}`} className="btn btn-success mb-3">
               Editar lista
             </Link>
             <button onClick={handleDelete} className="btn btn-danger mb-3 ms-3">
@@ -52,7 +52,7 @@ export function DetailsPage() {
         </div>
       </div>
       <div>
-        {userList.map((currentFruit) => {
+        {userList.fruits.map((currentFruit) => {
           return <Card props={currentFruit} key={currentFruit._id} />;
         })}
       </div>

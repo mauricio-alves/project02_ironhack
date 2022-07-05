@@ -16,8 +16,8 @@ export function Home() {
 
   return (
     <>
-      <Link to="/create-list">
-        <button className="btn btn-primary">Criar lista</button>
+      <Link to="/create-page">
+        <button className="btn btn-primary">Criar lista de compras!</button>
       </Link>
       <div className="d-flex flex-wrap">
         {list.map((currentList) => {
@@ -31,7 +31,7 @@ export function Home() {
                 <h5 className="card-title">{currentList.owner}</h5>
                 <p className="card-text">{currentList.date}</p>
                 <Link
-                  to={`/details-list/${currentList._id}`}
+                  to={`/details-page/${currentList._id}`}
                   className="btn btn-info"
                 >
                   Detalhes
