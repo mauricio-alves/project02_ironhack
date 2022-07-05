@@ -13,6 +13,7 @@
   font-size: 30px;
   color: aliceblue;
   height: 100px;
+  margin-bottom: 20px;
 }
 #editButton {
   width: 200px;
@@ -34,4 +35,11 @@
   position: relative;
   bottom: 15px;
   right: 60px;
+}
+#ownerDetails {
+  color: rgb(255, 0, 0);
+  margin-left: 20px;
+  font-size: 40px;
+  text-align: center;
+  align-items: center;
 }
