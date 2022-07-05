@@ -41,7 +41,7 @@ export function DetailsPage() {
     <>
       <div>
         <div id="infosDetails">
-          <Link to="/">
+          <Link id="backHomeDetails" to="/">
             <img className="backHome" src={home} alt="back to home" />
           </Link>
           <h1>
