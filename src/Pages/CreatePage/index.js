@@ -50,7 +50,7 @@ export function CreatePage() {
       <div>
         <Toaster />
       </div>
-      <h1>Crie sua lista de compras! </h1>
+      <h1 id="titleCreateList">Crie Sua Lista de Compras</h1>
       <form>
         <div id="headerCreate">
           <label htmlFor="owner-input">Nome :</label>
