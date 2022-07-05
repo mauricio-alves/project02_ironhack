@@ -1,0 +1,22 @@
+#userListCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+#infosDetails {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#editButton {
+  width: 200px;
+  box-shadow: 15px 15px 20px;
+}
+#deleteButton {
+  width: 200px;
+  box-shadow: 15px 15px 20px;
+}
+.backHome {
+  width: 70px;
+  height: 70px;
+}

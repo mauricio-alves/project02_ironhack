@@ -1,9 +1,14 @@
 #labelSearch {
   font-size: 30px;
+  display: flex;
   align-items: center;
-  margin-right: 50px;
-  margin-top: 50px;
+  text-align: center;
+  justify-content: center;
+  color: aliceblue;
+  padding: 30px;
 }
 #search-input {
-  width: 300px;
+  width: 500px;
+  border-radius: 20px;
+  font-size: 30px;
 }

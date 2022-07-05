@@ -37,9 +37,43 @@
 }
 #buttonCriar {
   width: 200px;
+  border-radius: 10px;
+  font-size: 20px;
 }
 #headerCreate {
   display: flex;
   justify-content: space-around;
-  margin-top: 50px;
+  background-color: salmon;
+  opacity: 0.5;
+  padding: 30px;
+  border-radius: 20px;
+  margin-top: 20px;
+  font-size: 30px;
+  color: aliceblue;
+}
+#titleCreateList {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  background-color: salmon;
+  color: aliceblue;
+  font-size: 50px;
+  border-radius: 15px;
+  padding: 20px;
+}
+#date-input {
+  border-radius: 20px;
+  text-align: center;
+}
+#owner-input {
+  border-radius: 20px;
+  text-align: center;
+}
+#searchBar {
+  background-color: salmon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 20px;
+  margin-top: 20px;
 }
