@@ -1,13 +1,13 @@
 import "./style.css";
 
-export function Card({ props, quant }) {
+export function Card({ props }) {
   return (
     <>
       <div id="cardFruit">
-        <div style={{ width: "300px" }}>
+        <div className="" style={{ width: "320px" }}>
           <img className="card-img-top" src={props.image} alt="imagecard" />
           <div className="card-body">
-            <h3>{props.name}</h3>
+            <h3 id="nameFruit">{props.name}</h3>
             <hr></hr>
             {/* <p className="card-text">{props.family}</p> */}
             <div id="footer">

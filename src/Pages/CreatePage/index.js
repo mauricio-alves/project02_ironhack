@@ -52,33 +52,36 @@ export function CreatePage() {
       </div>
       <h1>Crie Sua Lista de Compras</h1>
       <form>
-        <label htmlFor="owner-input">Nome :</label>
-        <input
-          id="owner-input"
-          type="text"
-          name="owner"
-          value={form.owner}
-          onChange={handleChange}
-        />
-
-        <label htmlFor="date-input">Data :</label>
-        <input
-          id="date-input"
-          type="date"
-          name="date"
-          value={form.date}
-          onChange={handleChange}
-        />
-
-        <button
-          className="btn btn-primary"
-          type="submit"
-          onClick={handleSubmit}
-        >
-          Criar
-        </button>
+        <div id="headerCreate">
+          <label htmlFor="owner-input">Nome :</label>
+          <input
+            id="owner-input"
+            type="text"
+            name="owner"
+            value={form.owner}
+            onChange={handleChange}
+          />
+          <label htmlFor="date-input">Data :</label>
+          <input
+            id="date-input"
+            type="date"
+            name="date"
+            value={form.date}
+            onChange={handleChange}
+          />
+          <button
+            id="buttonCriar"
+            className="btn btn-primary"
+            type="submit"
+            onClick={handleSubmit}
+          >
+            Criar
+          </button>
+        </div>
       </form>
-      <Search search={search} setSearch={setSearch} />
+      <div id="searchBar">
+        <Search search={search} setSearch={setSearch} />
+      </div>
       <div id="bodyCreate">
         {fruits
           .filter((currentFruit) => {
