@@ -4,16 +4,20 @@ import axios from "axios";
 import { Card } from "../../components/CardFruits";
 import { useNavigate } from "react-router-dom";
 import { Search } from "../../components/Search";
-// import { Toaster, toast } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 
-export function CreateList() {
+export function CreatePage() {
   const [search, setSearch] = useState("");
   const [fruits, setFruits] = useState([]);
   const [form, setForm] = useState({
     owner: "",
     date: "",
-    quantity: 0,
     fruits: [],
+  });
+
+  const [item, setItemList] = useState({
+    fruit: [],
+    quantity: 0,
   });
 
   const navigate = useNavigate();
@@ -31,15 +35,31 @@ export function CreateList() {
     }
     fetchFruits();
   }, []);
-  function handleChange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value });
-    console.log(form);
+
+  function handleChange(event) {
+    setForm({ ...form, [event.target.name]: event.target.value });
   }
+
+  function handleChangeQuantity(event) {
+    setItemList({ ...item, quantity: event.target.value });
+    // setItemList(event.target.value);
+  }
+
+  function handleAddFruit(currentFruit) {
+    setItemList({
+      ...item,
+      fruit: [...item.fruit, currentFruit],
+    });
+    setForm({ ...form, fruits: [item] });
+    toast.success("Fruta adicionada à sua lista!");
+  }
+  console.log(form);
+  console.log(item);
 
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      await axios.post(" https://ironrest.herokuapp.com/shopping-list", form);
+      await axios.post("https://ironrest.herokuapp.com/shopping-list", form);
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -48,6 +68,9 @@ export function CreateList() {
 
   return (
     <>
+      <div>
+        <Toaster />
+      </div>
       <h1>Crie Sua Lista de Compras</h1>
       <form>
         <label htmlFor="owner-input">Nome :</label>
@@ -86,37 +109,32 @@ export function CreateList() {
           })
           .map((currentFruit) => {
             return (
-              <>
-                <div id="cardsCreate">
-                  <Card props={currentFruit}></Card>
-                  <div id="footerCard">
-                    <div id="miniFooter">
-                      <label htmlFor="quantity">
-                        <b>Quantidade :</b>
-                      </label>
-                      <input
-                        id="quantity"
-                        type="number"
-                        name="quantity"
-                        value={form.quantity}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <button
-                      className="btn btn-outline-info"
-                      id="buttonAdd"
-                      onClick={() => {
-                        setForm({
-                          ...form,
-                          fruits: [...form.fruits, currentFruit],
-                        });
-                      }}
-                    >
-                      Adicionar
-                    </button>
+              <div id="cardsCreate" key={currentFruit._id}>
+                <Card props={currentFruit}></Card>
+                <div id="footerCard">
+                  <div id="miniFooter">
+                    <label htmlFor="quantity">
+                      <b>Quantidade :</b>
+                    </label>
+                    <input
+                      id="quantity"
+                      type="number"
+                      name="quantity"
+                      value={item.quantity}
+                      onChange={handleChangeQuantity}
+                    />
                   </div>
+                  <button
+                    className="btn btn-outline-info"
+                    id="buttonAdd"
+                    onClick={() => {
+                      handleAddFruit(currentFruit);
+                    }}
+                  >
+                    Adicionar
+                  </button>
                 </div>
-              </>
+              </div>
             );
           })}
       </div>
