@@ -6,7 +6,7 @@ import { Card } from "../../components/CardFruits";
 export function DetailsPage() {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [userList, setUserList] = useState({});
+  const [userList, setUserList] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -29,10 +29,10 @@ export function DetailsPage() {
       await axios.delete(`https://ironrest.herokuapp.com/shopping-list/${id}`);
       navigate("/");
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
-
+  console.log(userList);
   return loading ? (
     <div className="spinner-border text-danger" role="status"></div>
   ) : (
