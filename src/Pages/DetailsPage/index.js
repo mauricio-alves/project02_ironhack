@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Card } from "../../components/CardFruits";
 
-export function DetailsList() {
+export function DetailsPage() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [userList, setUserList] = useState({});
   const [loading, setLoading] = useState(true);
@@ -24,12 +24,17 @@ export function DetailsList() {
     fetchUserList();
   }, [id]);
 
-  console.log(userList);
+  async function handleDelete() {
+    try {
+      await axios.delete(`https://ironrest.herokuapp.com/shopping-list/${id}`);
+      navigate("/");
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return loading ? (
-    <div className="spinner-border text-info" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </div>
+    <div className="spinner-border text-danger" role="status"></div>
   ) : (
     <>
       <div>
@@ -40,13 +45,15 @@ export function DetailsList() {
             <Link to={`/edit-list/${id}`} className="btn btn-success mb-3">
               Editar lista
             </Link>
-            <button className="btn btn-danger mb-3 ms-3">Deletar lista</button>
+            <button onClick={handleDelete} className="btn btn-danger mb-3 ms-3">
+              Deletar lista
+            </button>
           </div>
         </div>
       </div>
       <div>
         {userList.map((currentFruit) => {
-          return <Card props={currentFruit} />;
+          return <Card props={currentFruit} key={currentFruit._id} />;
         })}
       </div>
     </>
