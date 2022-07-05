@@ -1,0 +1,9 @@
+#labelSearch {
+  font-size: 30px;
+  align-items: center;
+  margin-right: 50px;
+  margin-top: 50px;
+}
+#search-input {
+  width: 300px;
+}

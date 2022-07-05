@@ -1,3 +1,4 @@
+import "./style.css";
 export function Search({ search, setSearch }) {
   function handleChange(event) {
     setSearch(event.target.value);
@@ -5,7 +6,9 @@ export function Search({ search, setSearch }) {
 
   return (
     <>
-      <label htmlFor="search-input">Procure pelo nome: </label>
+      <label id="labelSearch" htmlFor="search-input">
+        Procure pelo nome:{" "}
+      </label>
       <input
         id="search-input"
         type="text"

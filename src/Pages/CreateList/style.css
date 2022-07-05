@@ -33,4 +33,13 @@
   justify-content: center;
 }
 #searchBar {
+  text-align: center;
+}
+#buttonCriar {
+  width: 200px;
+}
+#headerCreate {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
 }
