@@ -15,11 +15,6 @@ export function CreatePage() {
     fruits: [],
   });
 
-  const [item, setItemList] = useState({
-    fruit: [],
-    quantity: 0,
-  });
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,22 +34,6 @@ export function CreatePage() {
   function handleChange(event) {
     setForm({ ...form, [event.target.name]: event.target.value });
   }
-
-  function handleChangeQuantity(event) {
-    setItemList({ ...item, quantity: event.target.value });
-    // setItemList(event.target.value);
-  }
-
-  function handleAddFruit(currentFruit) {
-    setItemList({
-      ...item,
-      fruit: [...item.fruit, currentFruit],
-    });
-    setForm({ ...form, fruits: [item] });
-    toast.success("Fruta adicionada à sua lista!");
-  }
-  console.log(form);
-  console.log(item);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -123,15 +102,19 @@ export function CreatePage() {
                       id="quantity"
                       type="number"
                       name="quantity"
-                      value={item.quantity}
-                      onChange={handleChangeQuantity}
+                      value={form.quantity}
+                      onChange={handleChange}
                     />
                   </div>
                   <button
                     className="btn btn-outline-info"
                     id="buttonAdd"
                     onClick={() => {
-                      handleAddFruit(currentFruit);
+                      setForm({
+                        ...form,
+                        fruits: [...form.fruits, currentFruit],
+                      });
+                      toast.success("Fruta adicionada à sua lista!");
                     }}
                   >
                     Adicionar
