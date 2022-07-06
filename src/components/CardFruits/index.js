@@ -10,13 +10,13 @@ export function Card({ props }) {
             <h3 id="nameFruit">{props.name}</h3>
             <hr></hr>
             <div id="footer">
-              <h4>Tabela Nutricional:</h4>
-              <label>Carboidratos:</label>
-              <p className="card-carbo">{props.nutritions.carbohydrates}</p>
+              <h4>Tabela Nutricional (100gr):</h4>
               <label>Calorias:</label>
-              <p className="card-calories">{props.nutritions.calories}</p>
-              <label>Gorduras:</label>
-              <p className="card-fat">{props.nutritions.fat}</p>
+              <p className="card-calories">{props.nutritions.calories} Kcal</p>
+              <label>Carboidratos:</label>
+              <p className="card-carbo">{props.nutritions.carbohydrates}g</p>
+              <label>Fibras:</label>
+              <p className="card-fat">{props.nutritions.fiber}g</p>
             </div>
           </div>
         </div>
