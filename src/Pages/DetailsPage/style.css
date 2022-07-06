@@ -6,17 +6,40 @@
 #infosDetails {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  background-color: rgba(250, 128, 114, 0.786);
+  padding: 30px;
+  border-radius: 20px;
+  margin-top: 20px;
+  font-size: 30px;
+  color: aliceblue;
+  height: 100px;
+  margin-bottom: 20px;
 }
 #editButton {
   width: 200px;
-  box-shadow: 15px 15px 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  box-shadow: 10px 10px 15px black;
 }
 #deleteButton {
   width: 200px;
-  box-shadow: 15px 15px 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  box-shadow: 10px 10px 15px black;
 }
 .backHome {
   width: 70px;
   height: 70px;
+}
+#backHomeDetails {
+  position: relative;
+  bottom: 15px;
+  right: 60px;
+}
+#ownerDetails {
+  color: rgb(255, 0, 0);
+  margin-left: 20px;
+  font-size: 40px;
+  text-align: center;
+  align-items: center;
 }

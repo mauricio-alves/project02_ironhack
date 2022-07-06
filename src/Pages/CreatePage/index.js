@@ -2,9 +2,10 @@ import "./style.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Card } from "../../components/CardFruits";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Search } from "../../components/Search";
 import { Toaster, toast } from "react-hot-toast";
+import home from "../../assets/images/home.png";
 
 export function CreatePage() {
   const [search, setSearch] = useState("");
@@ -50,7 +51,13 @@ export function CreatePage() {
       <div>
         <Toaster />
       </div>
-      <h1 id="titleCreateList">Crie Sua Lista de Compras</h1>
+      <div id="headerCreateFirst">
+        <Link id="backHomeCreate" to="/">
+          <img className="backHome" src={home} alt="back to home" />
+        </Link>
+        <h1 id="titleCreateList">Crie Sua Lista de Compras</h1>
+      </div>
+
       <form>
         <div id="headerCreate">
           <label htmlFor="owner-input">Nome :</label>

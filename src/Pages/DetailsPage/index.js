@@ -41,12 +41,12 @@ export function DetailsPage() {
     <>
       <div>
         <div id="infosDetails">
-          <Link to="/">
+          <Link id="backHomeDetails" to="/">
             <img className="backHome" src={home} alt="back to home" />
           </Link>
-          <h1>
-            Criado por :<b> {userList.owner}</b>
-          </h1>
+          <h3>
+            Criado por :<b id="ownerDetails"> {userList.owner}</b>
+          </h3>
           <h2> {userList.date}</h2>
           <div>
             <Link
