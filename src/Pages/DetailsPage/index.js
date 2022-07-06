@@ -35,7 +35,7 @@ export function DetailsPage() {
       console.log(error);
     }
   }
-  console.log(userList);
+  
   return loading ? (
     <div className="spinner-border text-danger" role="status"></div>
   ) : (
