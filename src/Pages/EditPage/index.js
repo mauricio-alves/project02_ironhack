@@ -148,7 +148,7 @@ export function EditPage() {
                 Deletar item
               </button>
             </div>
-          );
+          )
         })}
       </div>
       <div id="searchBar">

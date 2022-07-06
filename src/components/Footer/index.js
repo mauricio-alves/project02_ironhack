@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <div className={style.container}>
       <img src={fruitsIcon} alt="fruits banner" />
-      Fruits Shop List ©
+      Fruits List ©
     </div>
   );
 }

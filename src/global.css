@@ -8,3 +8,18 @@ html {
   margin: 0 auto;
   width: 1600px;
 }
+
+/* .card-body {
+  display: flex;
+} */
+
+.card-body img {
+  width: 50px;
+}
+
+#cardIMC {
+  width: 300px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px black;
+}
