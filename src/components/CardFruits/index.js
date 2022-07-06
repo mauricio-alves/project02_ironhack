@@ -4,27 +4,22 @@ export function Card({ props, handleUnity }) {
   return (
     <>
       <div id="cardFruit">
-        <div className="" style={{ width: "320px" }}>
-          <img
-            className="card-img-top"
-            src={props.image}
-            alt="imagecard"
-          />
+        <div id="card">
+          <img id="card-img-top" src={props.image} alt="imagecard" />
           <div className="card-body">
             <h3 id="nameFruit">{props.name}</h3>
             <hr></hr>
             <div id="footer">
-              <h4>Tabela Nutricional (100gr):</h4>
-              <label>Calorias:</label>
+              <h5>Tabela Nutricional (100gr):</h5>
               <p className="card-calories">
-                {props.nutritions.calories} Kcal
+                Calorias: <b>{props.nutritions.calories} Kcal</b>
               </p>
-              <label>Carboidratos:</label>
               <p className="card-carbo">
-                {props.nutritions.carbohydrates}g
+                Carboidratos: <b>{props.nutritions.carbohydrates} g</b>
               </p>
-              <label>Fibras:</label>
-              <p className="card-fat">{props.nutritions.fiber}g</p>
+              <p className="card-fat">
+                Fibras: <b>{props.nutritions.fiber} g</b>
+              </p>
             </div>
           </div>
         </div>

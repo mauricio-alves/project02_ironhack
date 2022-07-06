@@ -8,7 +8,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 20px;
+
   /* margin: 50px 50px; */
 }
 #quantity {
@@ -47,12 +47,12 @@
   display: flex;
   justify-content: space-around;
   background-color: rgba(250, 128, 114, 0.786);
-  padding: 30px;
   border-radius: 20px;
-  margin-top: 20px;
+
   font-size: 30px;
   color: aliceblue;
-  height: 100px;
+  height: 80px;
+  align-items: center;
 }
 #titleCreateList {
   text-align: center;
@@ -63,10 +63,12 @@
 #date-input {
   border-radius: 20px;
   text-align: center;
+  margin-left: 10px;
 }
 #owner-input {
   border-radius: 20px;
   text-align: center;
+  margin-left: 10px;
 }
 #searchBar {
   background-color: rgba(250, 128, 114, 0.786);
@@ -76,7 +78,7 @@
   text-align: center;
   border-radius: 20px;
   margin-top: 20px;
-  height: 100px;
+  height: 80px;
 }
 #headerCreateFirst {
   display: flex;
@@ -84,10 +86,8 @@
   background-color: rgba(250, 128, 114, 0.786);
   align-items: center;
   border-radius: 15px;
-  padding: 20px;
-  height: 100px;
+  height: 80px;
 }
 #backHomeCreate {
-  position: relative;
-  right: 303px;
+  right: 300px;
 }
