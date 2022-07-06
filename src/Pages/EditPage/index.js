@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Card } from "../../components/CardFruits";
 import { Toaster, toast } from "react-hot-toast";
 import { Search } from "../../components/Search";
+import "./style.css";
 
 export function EditPage() {
   const navigate = useNavigate();
@@ -93,6 +94,7 @@ export function EditPage() {
       <div>
         <Toaster />
       </div>
+      ''
       <form
         style={{ maxWidth: "700px", marginLeft: "250px", marginBottom: "20px" }}
       >
@@ -103,7 +105,7 @@ export function EditPage() {
           <input
             value={form.owner}
             type="text"
-            name="name"
+            name="owner"
             className="form-control"
             id="input-name"
             onChange={handleChange}
@@ -122,6 +124,7 @@ export function EditPage() {
           />
         </div>
         <button
+          id="btnSalvarEditPage"
           type="submit"
           className="btn btn-success mb-3"
           onClick={handleSubmit}
@@ -129,12 +132,14 @@ export function EditPage() {
           Salvar lista
         </button>
       </form>
-      <div>
+      <div id="cardsEditPage">
         {form.fruits.map((currentFruit) => {
           return (
             <div key={currentFruit._id}>
               <Card props={currentFruit} />
+
               <button
+                id="btnDeleteEditPage"
                 onClick={() => {
                   handleDelete(currentFruit);
                 }}
