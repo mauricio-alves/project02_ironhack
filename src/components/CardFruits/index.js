@@ -4,19 +4,22 @@ export function Card({ props }) {
   return (
     <>
       <div id="cardFruit">
-        <div className="" style={{ width: "320px" }}>
-          <img className="card-img-top" src={props.image} alt="imagecard" />
+        <div id="card">
+          <img id="card-img-top" src={props.image} alt="imagecard" />
           <div className="card-body">
             <h3 id="nameFruit">{props.name}</h3>
             <hr></hr>
             <div id="footer">
-              <h4>Tabela Nutricional (100gr):</h4>
-              <label>Calorias:</label>
-              <p className="card-calories">{props.nutritions.calories} Kcal</p>
-              <label>Carboidratos:</label>
-              <p className="card-carbo">{props.nutritions.carbohydrates}g</p>
-              <label>Fibras:</label>
-              <p className="card-fat">{props.nutritions.fiber}g</p>
+              <h5>Tabela Nutricional (100gr):</h5>
+              <p className="card-calories">
+                Calorias: <b>{props.nutritions.calories} Kcal</b>
+              </p>
+              <p className="card-carbo">
+                Carboidratos: <b>{props.nutritions.carbohydrates} g</b>
+              </p>
+              <p className="card-fat">
+                Fibras: <b>{props.nutritions.fiber} g</b>
+              </p>
             </div>
           </div>
         </div>

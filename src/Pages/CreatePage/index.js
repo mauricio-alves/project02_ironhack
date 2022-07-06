@@ -51,31 +51,38 @@ export function CreatePage() {
       <div>
         <Toaster />
       </div>
-      <div id="headerCreateFirst">
-        <Link id="backHomeCreate" to="/">
-          <img className="backHome" src={home} alt="back to home" />
-        </Link>
+      {/* <div id="headerCreateFirst">
+        
         <h1 id="titleCreateList">Crie Sua Lista de Compras</h1>
-      </div>
+      </div> */}
 
       <form>
         <div id="headerCreate">
-          <label htmlFor="owner-input">Nome:</label>
-          <input
-            id="owner-input"
-            type="text"
-            name="owner"
-            value={form.owner}
-            onChange={handleChange}
-          />
-          <label htmlFor="date-input">Data:</label>
-          <input
-            id="date-input"
-            type="date"
-            name="date"
-            value={form.date}
-            onChange={handleChange}
-          />
+          <Link id="backHomeCreate" to="/">
+            <img className="backHome" src={home} alt="back to home" />
+          </Link>
+          <div>
+            {" "}
+            <label htmlFor="owner-input">Nome: </label>
+            <input
+              id="owner-input"
+              type="text"
+              name="owner"
+              value={form.owner}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="date-input">Data: </label>
+            <input
+              id="date-input"
+              type="date"
+              name="date"
+              value={form.date}
+              onChange={handleChange}
+            />
+          </div>
+
           <button
             id="buttonCriar"
             className="btn btn-primary"
