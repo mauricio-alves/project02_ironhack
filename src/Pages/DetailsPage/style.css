@@ -44,13 +44,25 @@
   text-align: center;
   align-items: center;
 }
-#quantidadeDetails {
-  border: 2px solid;
-  padding: 5px;
-  border-radius: 20px;
-  width: 200px;
+#tableDetailsMain {
+  margin-left: 10px;
+  font-size: 18px;
   display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  align-items: center;
+  margin-bottom: 20px;
+  background-color: antiquewhite;
+}
+.tableName {
+  width: 250px;
+}
+.tableUnity {
+  width: 370px;
+}
+.tableCalories {
+  width: 320px;
+}
+.tableCarbohydrates {
+  width: 430px;
+}
+.tableFiber {
+  width: 200px;
 }

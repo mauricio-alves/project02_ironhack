@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Card } from "../../components/CardFruits";
+// import { Card } from "../../components/CardFruits";
 import "./style.css";
 import home from "../../assets/images/home.png";
 
@@ -52,7 +52,7 @@ export function DetailsPage() {
           <div>
             <Link
               id="editButton"
-              to={`/edit-list/${id}`}
+              to={`/edit-page/${id}`}
               className="btn btn-success mb-3"
             >
               Editar lista
@@ -67,20 +67,49 @@ export function DetailsPage() {
           </div>
         </div>
       </div>
-      <div id="userListCards">
-        {userList.fruits.map((currentFruit) => {
-          return (
-            <>
-              <div>
-                <Card props={currentFruit} key={currentFruit._id} />
-                <div id="quantidadeDetails">
-                  <h5>Quantidade: {currentFruit.unity}</h5>
-                </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Fruta</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Calorias</th>
+            <th scope="col">Carboidratos</th>
+            <th scope="col">Fibras</th>
+          </tr>
+        </thead>
+      </table>
+      {userList.fruits.map((currentFruit) => {
+        return (
+          <>
+            <div id="tableDetailsMain">
+              <div className="tableName">{currentFruit.name}</div>
+              <div className="tableUnity">{currentFruit.unity}</div>
+              <div className="tableCalories">
+                {(
+                  currentFruit.unity * currentFruit.nutritions.calories
+                ).toFixed(0)}
               </div>
-            </>
-          );
-        })}
-      </div>
+              <div className="tableCarbohydrates">
+                {(
+                  currentFruit.unity * currentFruit.nutritions.carbohydrates
+                ).toFixed(1)}
+              </div>
+              <div className="tableFiber">
+                {(currentFruit.unity * currentFruit.nutritions.fiber).toFixed(
+                  1
+                )}
+              </div>
+            </div>
+          </>
+        );
+      })}
     </>
   );
+}
+
+{
+  /* <Card props={currentFruit} key={currentFruit._id} />
+                <div id="quantidadeDetails">
+                  <h5>Quantidade: {currentFruit.unity}</h5>
+                </div> */
 }
