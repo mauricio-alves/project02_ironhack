@@ -35,7 +35,7 @@ export function DetailsPage() {
       console.log(error);
     }
   }
-  
+
   return loading ? (
     <div className="spinner-border text-danger" role="status"></div>
   ) : (
@@ -67,7 +67,7 @@ export function DetailsPage() {
           </div>
         </div>
       </div>
-      <table class="table table-striped">
+      <table className="table table-striped">
         <thead>
           <tr>
             <th scope="col">Fruta</th>
@@ -80,7 +80,7 @@ export function DetailsPage() {
       </table>
       {userList.fruits.map((currentFruit) => {
         return (
-          <>
+          <div key={currentFruit._id}>
             <div id="tableDetailsMain">
               <div className="tableName">{currentFruit.name}</div>
               <div className="tableUnity">{currentFruit.unity}</div>
@@ -100,16 +100,9 @@ export function DetailsPage() {
                 )}
               </div>
             </div>
-          </>
+          </div>
         );
       })}
     </>
   );
-}
-
-{
-  /* <Card props={currentFruit} key={currentFruit._id} />
-                <div id="quantidadeDetails">
-                  <h5>Quantidade: {currentFruit.unity}</h5>
-                </div> */
 }

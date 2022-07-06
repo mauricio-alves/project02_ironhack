@@ -103,7 +103,7 @@ export function EditPage() {
           <input
             value={form.owner}
             type="text"
-            name="name"
+            name="owner"
             className="form-control"
             id="input-name"
             onChange={handleChange}
@@ -143,7 +143,7 @@ export function EditPage() {
                 Deletar item
               </button>
             </div>
-          );
+          )
         })}
       </div>
       <div id="searchBar">
