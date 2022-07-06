@@ -44,3 +44,13 @@
   text-align: center;
   align-items: center;
 }
+#quantidadeDetails {
+  border: 2px solid;
+  padding: 5px;
+  border-radius: 20px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+}

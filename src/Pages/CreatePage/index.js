@@ -125,6 +125,18 @@ export function CreatePage() {
               <div id="cardsCreate" key={currentFruit._id}>
                 <Card props={currentFruit} handleUnity={handleUnity}></Card>
                 <div id="footerCard">
+                  <div id="miniFooter">
+                    <label htmlFor="quantity">
+                      <b>Quantidade:</b>
+                    </label>
+                    <input
+                      id="quantity"
+                      type="number"
+                      name="quantity"
+                      value={currentFruit.unity}
+                      onChange={handleUnity}
+                    />
+                  </div>
                   <button
                     className="btn btn-outline-info"
                     id="buttonAdd"

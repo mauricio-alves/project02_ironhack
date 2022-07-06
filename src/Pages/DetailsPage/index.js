@@ -69,7 +69,16 @@ export function DetailsPage() {
       </div>
       <div id="userListCards">
         {userList.fruits.map((currentFruit) => {
-          return <Card props={currentFruit} key={currentFruit._id} />;
+          return (
+            <>
+              <div>
+                <Card props={currentFruit} key={currentFruit._id} />
+                <div id="quantidadeDetails">
+                  <h5>Quantidade: {currentFruit.unity}</h5>
+                </div>
+              </div>
+            </>
+          );
         })}
       </div>
     </>
