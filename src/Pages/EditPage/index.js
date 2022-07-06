@@ -1,11 +1,35 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { Card } from '../../components/CardFruits';
+import { useNavigate, useParams } from "react-router-dom";
+import { Card } from "../../components/CardFruits";
+import { Toaster, toast } from "react-hot-toast";
+import { Search } from "../../components/Search";
 
 export function EditPage() {
+  const navigate = useNavigate();
   const { id } = useParams();
-  const [userList, setUserList] = useState({ fruits: []});
+  const [search, setSearch] = useState("");
+  const [fruits, setFruits] = useState([]);
+  const [unity, setUnity] = useState(0);
+  const [form, setForm] = useState({
+    owner: "",
+    date: "",
+    fruits: [],
+  });
+
+  useEffect(() => {
+    async function fetchFruits() {
+      try {
+        const response = await axios.get(
+          "https://ironrest.herokuapp.com/allfruits"
+        );
+        setFruits(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchFruits();
+  }, []);
 
   useEffect(() => {
     async function fetchUserList() {
@@ -13,32 +37,155 @@ export function EditPage() {
         const response = await axios.get(
           `https://ironrest.herokuapp.com/shopping-list/${id}`
         );
-        setUserList(response.data);
+        setForm(response.data);
       } catch (error) {
         console.log(error);
       }
     }
     fetchUserList();
   }, [id]);
-  console.log(userList)
+
+  function handleUnity(event) {
+    setUnity(event.target.value);
+  }
+
+  function handleChange(event) {
+    event.preventDefault();
+    setForm({ ...form, [event.target.name]: event.target.value });
+  }
+
+  function handleAddFruit(currentFruit) {
+    currentFruit.unity = unity;
+    setForm({
+      ...form,
+      fruits: [...form.fruits, currentFruit],
+    });
+    toast.success("Fruta adicionada à sua lista!");
+  }
+
+  function handleDelete(fruit) {
+    const clone = { ...form };
+    const updatedList = clone.fruits.filter((currentFruit) => {
+      return fruit !== currentFruit;
+    });
+
+    setForm({ ...form, fruits: updatedList });
+    toast.error("Fruta removida da sua lista!");
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    try {
+      const clone = { ...form };
+      delete clone._id;
+      await axios.put(
+        `https://ironrest.herokuapp.com/shopping-list/${id}`,
+        clone
+      );
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <>
       <div>
-        <div>
-          <h1>Lista de: {userList.owner}</h1>
-          <h2>Criada em: {userList.date}</h2>
-          <div>
-            <Link to={`/edit-page/${id}`} className="btn btn-success mb-3">
-              Salvar lista
-            </Link>
-          </div>
-        </div>
+        <Toaster />
       </div>
+      <form
+        style={{ maxWidth: "700px", marginLeft: "250px", marginBottom: "20px" }}
+      >
+        <div className="mb-3">
+          <label htmlFor="input-name" className="form-label">
+            Altere seu nome:
+          </label>
+          <input
+            value={form.owner}
+            type="text"
+            name="name"
+            className="form-control"
+            id="input-name"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="input-title" className="form-label">
+            Altere a data:
+          </label>
+          <input
+            id="date-input"
+            type="date"
+            name="date"
+            value={form.date}
+            onChange={handleChange}
+          />
+        </div>
+        <button
+          type="submit"
+          className="btn btn-success mb-3"
+          onClick={handleSubmit}
+        >
+          Salvar lista
+        </button>
+      </form>
       <div>
-        {userList.fruits.map((currentFruit) => {
-          return <Card props={currentFruit} key={currentFruit._id} />;
+        {form.fruits.map((currentFruit) => {
+          return (
+            <div key={currentFruit._id}>
+              <Card props={currentFruit} />
+              <button
+                onClick={() => {
+                  handleDelete(currentFruit);
+                }}
+                className="btn btn-danger"
+              >
+                Deletar item
+              </button>
+            </div>
+          );
         })}
+      </div>
+      <div id="searchBar">
+        <Search search={search} setSearch={setSearch} />
+      </div>
+      <div id="bodyCreate">
+        {fruits
+          .filter((currentFruit) => {
+            return currentFruit.name
+              .toLowerCase()
+              .includes(search.toLowerCase());
+          })
+          .map((currentFruit) => {
+            return (
+              <div id="cardsCreate" key={currentFruit._id}>
+                <Card props={currentFruit} handleUnity={handleUnity}></Card>
+                <div id="footerCard">
+                  <div id="miniFooter">
+                    <label htmlFor="quantity">
+                      <b>Quantidade:</b>
+                    </label>
+                    <input
+                      id="quantity"
+                      type="number"
+                      name="quantity"
+                      value={currentFruit.unity}
+                      onChange={handleUnity}
+                    />
+                  </div>
+                  <button
+                    className="btn btn-outline-info"
+                    id="buttonAdd"
+                    onClick={() => {
+                      handleAddFruit(currentFruit);
+                    }}
+                  >
+                    Adicionar
+                  </button>
+                </div>
+              </div>
+            );
+          })}
       </div>
     </>
   );

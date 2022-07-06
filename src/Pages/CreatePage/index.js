@@ -51,8 +51,6 @@ export function CreatePage() {
     toast.success("Fruta adicionada à sua lista!");
   }
 
-  console.log(form);
-
   async function handleSubmit(event) {
     event.preventDefault();
     try {
@@ -68,18 +66,12 @@ export function CreatePage() {
       <div>
         <Toaster />
       </div>
-      {/* <div id="headerCreateFirst">
-        
-        <h1 id="titleCreateList">Crie Sua Lista de Compras</h1>
-      </div> */}
-
       <form>
         <div id="headerCreate">
           <Link id="backHomeCreate" to="/">
             <img className="backHome" src={home} alt="back to home" />
           </Link>
           <div>
-            {" "}
             <label htmlFor="owner-input">Nome: </label>
             <input
               id="owner-input"
