@@ -50,6 +50,8 @@
   display: flex;
   margin-bottom: 20px;
   background-color: antiquewhite;
+  border-radius: 15px;
+  padding: 10px;
 }
 .tableName {
   width: 250px;
@@ -65,4 +67,30 @@
 }
 .tableFiber {
   width: 200px;
+}
+#total {
+  background-color: rgba(251, 85, 38, 0.694);
+  background-color: antiquewhite;
+  color: red;
+  padding: 5px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  margin-left: 10px;
+}
+#totalCal {
+  width: 320px;
+}
+#totalTitle {
+  width: 610px;
+  margin-left: 10px;
+}
+#totalCarbo {
+  width: 435px;
+}
+b {
+}
+
+#headerTable {
 }
