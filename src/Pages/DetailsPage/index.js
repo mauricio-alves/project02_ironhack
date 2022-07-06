@@ -21,10 +21,11 @@ export function DetailsPage() {
         setLoading(false);
       } catch (error) {
         console.log(error);
+        navigate("error");
       }
     }
     fetchUserList();
-  }, [id]);
+  }, [id, navigate]);
 
   async function handleDelete() {
     try {

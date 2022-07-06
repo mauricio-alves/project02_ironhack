@@ -8,6 +8,8 @@ import { Toaster, toast } from "react-hot-toast";
 import home from "../../assets/images/home.png";
 
 export function CreatePage() {
+  const navigate = useNavigate();
+
   const [search, setSearch] = useState("");
   const [fruits, setFruits] = useState([]);
   const [form, setForm] = useState({
@@ -16,7 +18,7 @@ export function CreatePage() {
     fruits: [],
   });
 
-  const navigate = useNavigate();
+  const [unity, setUnity] = useState(0);
 
   useEffect(() => {
     async function fetchFruits() {
@@ -35,6 +37,21 @@ export function CreatePage() {
   function handleChange(event) {
     setForm({ ...form, [event.target.name]: event.target.value });
   }
+
+  function handleUnity(event) {
+    setUnity(event.target.value);
+  }
+
+  function handleAddFruit(currentFruit) {
+    currentFruit.unity = unity;
+    setForm({
+      ...form,
+      fruits: [...form.fruits, currentFruit],
+    });
+    toast.success("Fruta adicionada à sua lista!");
+  }
+
+  console.log(form);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -99,29 +116,16 @@ export function CreatePage() {
           .map((currentFruit) => {
             return (
               <div id="cardsCreate" key={currentFruit._id}>
-                <Card props={currentFruit}></Card>
+                <Card
+                  props={currentFruit}
+                  handleUnity={handleUnity}
+                ></Card>
                 <div id="footerCard">
-                  <div id="miniFooter">
-                    <label htmlFor="quantity">
-                      <b>Quantidade:</b>
-                    </label>
-                    <input
-                      id="quantity"
-                      type="number"
-                      name="quantity"
-                      value={form.quantity}
-                      onChange={handleChange}
-                    />
-                  </div>
                   <button
                     className="btn btn-outline-info"
                     id="buttonAdd"
                     onClick={() => {
-                      setForm({
-                        ...form,
-                        fruits: [...form.fruits, currentFruit],
-                      });
-                      toast.success("Fruta adicionada à sua lista!");
+                      handleAddFruit(currentFruit);
                     }}
                   >
                     Adicionar

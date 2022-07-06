@@ -7,6 +7,7 @@ import "./global.css";
 import { Home } from "./Pages/Home";
 import { DetailsPage } from "./Pages/DetailsPage";
 import { EditPage } from "./Pages/EditPage";
+import { NotFoundPage } from "./Pages/NotFoundPage";
 
 export function App() {
   return (
@@ -17,6 +18,7 @@ export function App() {
         <Route path="/create-page" element={<CreatePage />} />
         <Route path="/details-page/:id" element={<DetailsPage />} />
         <Route path="/edit-page/:id" element={<EditPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </>
