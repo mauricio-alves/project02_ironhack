@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { CardIMC } from '../../components/CardIMC';
 
 export function Home() {
   const [list, setList] = useState([]);
@@ -19,6 +20,7 @@ export function Home() {
       <Link to="/create-page">
         <button className="btn btn-primary">Criar lista de compras!</button>
       </Link>
+      <CardIMC />
       <div className="d-flex flex-wrap">
         {list.map((currentList) => {
           return (
