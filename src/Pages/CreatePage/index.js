@@ -22,7 +22,7 @@ export function CreatePage() {
     async function fetchFruits() {
       try {
         const response = await axios.get(
-          "https://ironrest.herokuapp.com/list-fruits"
+          "https://ironrest.herokuapp.com/allfruits"
         );
         setFruits(response.data);
       } catch (error) {
@@ -60,7 +60,7 @@ export function CreatePage() {
 
       <form>
         <div id="headerCreate">
-          <label htmlFor="owner-input">Nome :</label>
+          <label htmlFor="owner-input">Nome:</label>
           <input
             id="owner-input"
             type="text"
@@ -68,7 +68,7 @@ export function CreatePage() {
             value={form.owner}
             onChange={handleChange}
           />
-          <label htmlFor="date-input">Data :</label>
+          <label htmlFor="date-input">Data:</label>
           <input
             id="date-input"
             type="date"
@@ -103,7 +103,7 @@ export function CreatePage() {
                 <div id="footerCard">
                   <div id="miniFooter">
                     <label htmlFor="quantity">
-                      <b>Quantidade :</b>
+                      <b>Quantidade:</b>
                     </label>
                     <input
                       id="quantity"
