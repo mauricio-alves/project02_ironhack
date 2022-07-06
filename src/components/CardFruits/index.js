@@ -1,6 +1,6 @@
 import "./style.css";
 
-export function Card({ props }) {
+export function Card({ props, handleUnity }) {
   return (
     <>
       <div id="cardFruit">
@@ -23,6 +23,18 @@ export function Card({ props }) {
             </div>
           </div>
         </div>
+      </div>
+      <div id="miniFooter">
+        <label htmlFor="quantity">
+          <b>Quantidade:</b>
+        </label>
+        <input
+          id="quantity"
+          type="number"
+          name="quantity"
+          value={props.unity}
+          onChange={handleUnity}
+        />
       </div>
     </>
   );
