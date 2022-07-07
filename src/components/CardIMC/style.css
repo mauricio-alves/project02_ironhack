@@ -1,0 +1,47 @@
+.cardIMC {
+  margin-top: 20px;
+  display: flex;
+  height: 340px;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  border: solid black 2px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 15px black;
+}
+
+.labelImc {
+  width: 50px;
+  margin-left: 20px;
+  font-weight: bold;
+  margin-right: 20px;
+  font-size: 20px;
+}
+#emoji {
+  margin-top: 10px;
+  height: 100px;
+  width: 100px;
+}
+.inputImc {
+  width: 50px;
+  margin-left: 10px;
+  text-align: center;
+  margin-top: 10px;
+}
+#btnCalc {
+  width: 200px;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 10px;
+  margin: 20px;
+}
+#calculeImc {
+  margin-top: 10px;
+  font-weight: bold;
+}
+#infoUserImc {
+  text-align: center;
+}
+#headerCalcImc {
+  text-align: center;
+}

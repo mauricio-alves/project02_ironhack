@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import imcIcon from "../../assets/images/imc-icon.png";
+import "./style.css";
 
 export function CardIMC() {
   const [calculate, setCalculate] = useState({
@@ -48,44 +49,47 @@ export function CardIMC() {
   }
 
   return (
-    <div>
+    <>
       <div>
         <Toaster />
       </div>
-      <div id="cardIMC">
-        <div id="card">
-          <div>
-            <div className="card-body">
-              <h3>Descubra seu IMC</h3>
-              <img src={imcIcon} alt="emoji" />
-            </div>
-            <hr></hr>
-            <div>
-              <label htmlFor="peso-input">Peso:</label>
-              <input
-                id="peso-input"
-                type="number"
-                name="peso"
-                value={calculate.peso}
-                onChange={handleChange}
-              />
-              <br />
-              <label htmlFor="altura-input">Altura:</label>
-              <input
-                id="altura-input"
-                type="number"
-                name="altura"
-                value={calculate.altura}
-                onChange={handleChange}
-              />
-              <br />
-              <button onClick={handleCalc} className="btn btn-dark">
-                Calcular
-              </button>
-            </div>
-          </div>
+      <div className="cardIMC">
+        <div id="headerCalcImc">
+          <img id="emoji" src={imcIcon} alt="emoji" />
+          <h4 id="calculeImc">Calcule Seu IMC</h4>
+          <hr></hr>
+        </div>
+
+        <div id="infoUserImc">
+          <label className="labelImc" htmlFor="peso-input">
+            Peso:
+          </label>
+          <input
+            className="inputImc"
+            id="peso-input"
+            type="number"
+            name="peso"
+            value={calculate.peso}
+            onChange={handleChange}
+          />
+          <br />
+          <label className="labelImc" htmlFor="altura-input">
+            Altura:
+          </label>
+          <input
+            className="inputImc"
+            id="altura-input"
+            type="number"
+            name="altura"
+            value={calculate.altura}
+            onChange={handleChange}
+          />
+          <br />
+          <button id="btnCalc" onClick={handleCalc} className="btn btn-dark">
+            Calcular
+          </button>
         </div>
       </div>
-    </div>
+    </>
   );
 }
