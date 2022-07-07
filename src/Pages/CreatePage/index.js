@@ -18,7 +18,7 @@ export function CreatePage() {
     fruits: [],
   });
 
-  const [unity, setUnity] = useState(0);
+  const [unity, setUnity] = useState(1);
 
   useEffect(() => {
     async function fetchFruits() {

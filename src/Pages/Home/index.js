@@ -2,6 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CardIMC } from "../../components/CardIMC";
+<<<<<<< HEAD
+=======
+import "./style.css";
+>>>>>>> 0883688665b6c6385ff6b57159b2ccb0984d1b1a
 
 export function Home() {
   const [list, setList] = useState([]);
@@ -17,31 +21,38 @@ export function Home() {
 
   return (
     <>
-      <Link to="/create-page">
-        <button className="btn btn-primary">Criar lista de compras!</button>
-      </Link>
-      <CardIMC />
-      <div className="d-flex flex-wrap">
-        {list.map((currentList) => {
-          return (
-            <div
-              className="card"
-              style={{ width: "18rem" }}
-              key={currentList._id}
-            >
-              <div className="card-body">
-                <h5 className="card-title">{currentList.owner}</h5>
+      <div id="containerTitleHome">
+        <div className="imgGifTitle">.</div>
+        <Link id="linkHome" to="/create-page">
+          <div id="titleHome">Crie Sua Lista Aqui!</div>
+        </Link>
+        <div className="imgGifTitle">.</div>
+      </div>
+      <div id="homeHome">
+        <div id="cardImcHome"> {<CardIMC />}</div>
+        <div id="homeBody">
+          {list.map((currentList) => {
+            return (
+              <div id="cardUserHome" className="card" key={currentList._id}>
+                <div id="card-body">
+                  <h5 className="card-title">
+                    <b>{currentList.owner}</b>
+                  </h5>
+                </div>
                 <p className="card-text">{currentList.date}</p>
-                <Link
-                  to={`/details-page/${currentList._id}`}
-                  className="btn btn-info"
-                >
-                  Detalhes
-                </Link>
+                <div>
+                  <Link
+                    to={`/details-page/${currentList._id}`}
+                    id="btnDetalhes"
+                    className="btn"
+                  >
+                    Detalhes
+                  </Link>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </>
   );
