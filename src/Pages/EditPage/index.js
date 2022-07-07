@@ -1,17 +1,18 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { Card } from "../../components/CardFruits";
 import { Toaster, toast } from "react-hot-toast";
 import { Search } from "../../components/Search";
 import "./style.css";
+import home from "../../assets/images/home.png";
 
 export function EditPage() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [search, setSearch] = useState("");
   const [fruits, setFruits] = useState([]);
-  const [unity, setUnity] = useState(0);
+  const [unity, setUnity] = useState(1);
   const [form, setForm] = useState({
     owner: "",
     date: "",
@@ -93,57 +94,53 @@ export function EditPage() {
     setFruits(fruits.filter((currentFruit) => currentFruit.id !== element.id));
   }
 
-  function deletedFruits(currentFruit) {
-    setFruits({
-      ...fruits,
-      fruits: [...fruits, currentFruit],
-    });
-    console.log(fruits);
-  }
+  // function deletedFruits(element) {
+  //   setFruits(...fruits, element);
+  //   console.log(fruits);
+  // }
 
   return (
     <>
       <div>
         <Toaster />
       </div>
-      ''
-      <form
-        style={{ maxWidth: "700px", marginLeft: "250px", marginBottom: "20px" }}
-      >
-        <div className="mb-3">
-          <label htmlFor="input-name" className="form-label">
-            Altere seu nome:
-          </label>
-          <input
-            value={form.owner}
-            type="text"
-            name="owner"
-            className="form-control"
-            id="input-name"
-            onChange={handleChange}
-          />
+      <form>
+        <div id="formEditPage">
+          <Link id="backHomeCreate" to="/">
+            <img className="backHome" src={home} alt="back to home" />
+          </Link>
+          <div>
+            <label htmlFor="input-name">Nome: </label>
+            <input
+              id="input-name"
+              type="text"
+              name="owner"
+              value={form.owner}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="input-date">Data: </label>
+            <input
+              id="input-date"
+              type="date"
+              name="date"
+              value={form.date}
+              onChange={handleChange}
+            />
+          </div>
+
+          <button
+            id="btnSalvarEditPage"
+            type="submit"
+            className="btn btn-success mb-3"
+            onClick={handleSubmit}
+          >
+            Salvar lista
+          </button>
         </div>
-        <div className="mb-3">
-          <label htmlFor="input-title" className="form-label">
-            Altere a data:
-          </label>
-          <input
-            id="date-input"
-            type="date"
-            name="date"
-            value={form.date}
-            onChange={handleChange}
-          />
-        </div>
-        <button
-          id="btnSalvarEditPage"
-          type="submit"
-          className="btn btn-success mb-3"
-          onClick={handleSubmit}
-        >
-          Salvar lista
-        </button>
       </form>
+
       <div id="cardsEditPage">
         {form.fruits.map((currentFruit) => {
           return (
@@ -154,7 +151,7 @@ export function EditPage() {
                 id="btnDeleteEditPage"
                 onClick={() => {
                   handleDelete(currentFruit);
-                  deletedFruits(currentFruit);
+                  // deletedFruits(currentFruit);
                 }}
                 className="btn btn-danger"
               >

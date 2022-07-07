@@ -12,3 +12,8 @@
 #card {
   border-radius: 30px;
 }
+
+.card-body {
+  margin-left: 20px;
+  margin-right: 20px;
+}
