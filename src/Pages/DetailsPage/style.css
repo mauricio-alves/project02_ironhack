@@ -80,17 +80,16 @@
   margin-left: 10px;
 }
 #totalCal {
-  width: 320px;
+  width: 350px;
 }
 #totalTitle {
-  width: 610px;
+  width: 180px;
   margin-left: 10px;
 }
 #totalCarbo {
   width: 435px;
 }
-b {
-}
 
-#headerTable {
+#totalQtde {
+  width: 400px;
 }

@@ -6,15 +6,13 @@ export function Search({ search, setSearch }) {
 
   return (
     <>
-      <label id="labelSearch" htmlFor="search-input">
-        Procure pelo nome:{" "}
-      </label>
       <input
         id="search-input"
         type="text"
         name="name"
         value={search}
         onChange={handleChange}
+        placeholder='Procure a fruta'
       />
     </>
   );

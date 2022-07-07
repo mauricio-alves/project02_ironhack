@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { CardIMC } from '../../components/CardIMC';
+import { CardIMC } from "../../components/CardIMC";
 
 export function Home() {
   const [list, setList] = useState([]);

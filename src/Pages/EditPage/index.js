@@ -93,12 +93,12 @@ export function EditPage() {
     setFruits(fruits.filter((currentFruit) => currentFruit.id !== element.id));
   }
 
-  function deletedFruits(currentFruit) {
-    setFruits({
-      ...fruits,
-      fruits: [...fruits, currentFruit],
-    });
-    console.log(fruits);
+  function deletedFruits(element) {
+    // setFruits({
+    //   ...fruits,
+    //   fruits: [...fruits, currentFruit],
+    // });
+    // console.log(fruits);
   }
 
   return (
@@ -106,7 +106,6 @@ export function EditPage() {
       <div>
         <Toaster />
       </div>
-      ''
       <form
         style={{ maxWidth: "700px", marginLeft: "250px", marginBottom: "20px" }}
       >
@@ -168,7 +167,6 @@ export function EditPage() {
         <Search search={search} setSearch={setSearch} />
       </div>
       <div id="bodyCreate">
-        {console.log(fruits)}
         {fruits
           .filter((currentFruit) => {
             return currentFruit.name
@@ -192,7 +190,6 @@ export function EditPage() {
                       onChange={handleUnity}
                     />
                   </div>
-                  {console.log(fruits)}
                   <button
                     className="btn btn-outline-info"
                     id="buttonAdd"
