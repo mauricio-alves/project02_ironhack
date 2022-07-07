@@ -61,6 +61,10 @@ export function CreatePage() {
     }
   }
 
+  function addedFruits(element) {
+    setFruits(fruits.filter((currentFruit) => currentFruit.id !== element.id));
+  }
+
   return (
     <>
       <div>
@@ -134,6 +138,7 @@ export function CreatePage() {
                     id="buttonAdd"
                     onClick={() => {
                       handleAddFruit(currentFruit);
+                      addedFruits(currentFruit);
                     }}
                   >
                     Adicionar

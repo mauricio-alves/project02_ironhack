@@ -89,6 +89,18 @@ export function EditPage() {
     }
   }
 
+  function addedFruits(element) {
+    setFruits(fruits.filter((currentFruit) => currentFruit.id !== element.id));
+  }
+
+  function deletedFruits(currentFruit) {
+    setFruits({
+      ...fruits,
+      fruits: [...fruits, currentFruit],
+    });
+    console.log(fruits);
+  }
+
   return (
     <>
       <div>
@@ -142,19 +154,21 @@ export function EditPage() {
                 id="btnDeleteEditPage"
                 onClick={() => {
                   handleDelete(currentFruit);
+                  deletedFruits(currentFruit);
                 }}
                 className="btn btn-danger"
               >
                 Deletar item
               </button>
             </div>
-          )
+          );
         })}
       </div>
       <div id="searchBar">
         <Search search={search} setSearch={setSearch} />
       </div>
       <div id="bodyCreate">
+        {console.log(fruits)}
         {fruits
           .filter((currentFruit) => {
             return currentFruit.name
@@ -178,11 +192,13 @@ export function EditPage() {
                       onChange={handleUnity}
                     />
                   </div>
+                  {console.log(fruits)}
                   <button
                     className="btn btn-outline-info"
                     id="buttonAdd"
                     onClick={() => {
                       handleAddFruit(currentFruit);
+                      addedFruits(currentFruit);
                     }}
                   >
                     Adicionar
