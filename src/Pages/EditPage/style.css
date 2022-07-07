@@ -1,6 +1,7 @@
 #cardsEditPage {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 #btnDeleteEditPage {
   width: 200px;
@@ -13,9 +14,27 @@
 
 #btnSalvarEditPage {
   width: 200px;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
   border-radius: 10px;
+  font-size: 20px;
   box-shadow: 10px 10px 15px black;
+}
+#formEditPage {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(250, 128, 114, 0.786);
+  border-radius: 20px;
+  font-size: 30px;
+  color: aliceblue;
+  height: 80px;
+  align-items: center;
+}
+#input-name {
+  border-radius: 20px;
+  text-align: center;
+  margin-left: 10px;
+}
+#input-date {
+  border-radius: 20px;
+  text-align: center;
+  margin-left: 10px;
 }

@@ -10,7 +10,7 @@ export function Card({ props }) {
             <h3 id="nameFruit">{props.name}</h3>
             <hr></hr>
             <div id="footer">
-              <h5>Tabela Nutricional (100gr):</h5>
+              <h5>Tabela Nutricional (100gr)</h5>
               <p className="card-calories">
                 Calorias: <b>{props.nutritions.calories} Kcal</b>
               </p>
