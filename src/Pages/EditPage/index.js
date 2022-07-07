@@ -165,7 +165,6 @@ export function EditPage() {
         <Search search={search} setSearch={setSearch} />
       </div>
       <div id="bodyCreate">
-        {console.log(fruits)}
         {fruits
           .filter((currentFruit) => {
             return currentFruit.name
@@ -189,7 +188,6 @@ export function EditPage() {
                       onChange={handleUnity}
                     />
                   </div>
-                  {console.log(fruits)}
                   <button
                     className="btn btn-outline-info"
                     id="buttonAdd"

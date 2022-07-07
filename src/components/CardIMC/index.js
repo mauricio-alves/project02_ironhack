@@ -20,27 +20,30 @@ export function CardIMC() {
 
     if (result < 18.5) {
       return toast(
-        `Seu IMC é: ${result.toFixed(
-          2
-        )} kg/m². Cuidado! Você está abaixo do peso adequado! Capriche nas frutas! ^^`,
+        <p>
+          Seu IMC é: <strong>{result.toFixed(2)} kg/m²</strong>. Cuidado! Você
+          está abaixo do peso adequado! Capriche nas frutas! 😱🍍
+        </p>,
         {
           duration: 8000,
         }
       );
     } else if (result < 25) {
       return toast(
-        `Seu IMC é: ${result.toFixed(
-          2
-        )} kg/m². Parabéns! Você está no peso adequado! Merece até uma fruta! ;D`,
+        <p>
+          Seu IMC é: <strong>{result.toFixed(2)} kg/m²</strong>. Parabéns! Você
+          está no peso adequado! Merece até uma fruta! 😍🍎
+        </p>,
         {
           duration: 8000,
         }
       );
     } else {
       return toast(
-        `Seu IMC é: ${result.toFixed(
-          2
-        )} kg/m². Cuidado! Você está acima do peso adequado! Diminua os carboidratos urgente! :O`,
+        <p>
+          Seu IMC é: <strong>{result.toFixed(2)} kg/m²</strong>. Cuidado! Você
+          está acima do peso adequado! Diminua os carboidratos! 😨
+        </p>,
         {
           duration: 8000,
         }

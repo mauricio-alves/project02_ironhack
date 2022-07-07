@@ -1,15 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-// import { Card } from "../../components/CardFruits";
 import "./style.css";
 import home from "../../assets/images/home.png";
+import { Toaster, toast } from "react-hot-toast";
 
 export function DetailsPage() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [userList, setUserList] = useState({ fruits: [] });
   const [loading, setLoading] = useState(true);
+  let totalQtde = 0;
   let totalCal = 0;
   let totalCarbo = 0;
   let totalFiber = 0;
@@ -39,10 +40,37 @@ export function DetailsPage() {
     }
   }
 
+  useEffect(() => {
+    function load() {
+      toast(
+        (t) => (
+          <span>
+            <button
+              className="btn btn-dark"
+              style={{ margin: "0 0 20px 280px" }}
+              onClick={() => toast.dismiss(t.id)}
+            >
+              X
+            </button>
+            A ingestão diária recomendada de fibras para adultos é de{" "}
+            <b>25 gramas</b>. Portanto, <b>coma frutas! 🍉🍌😋</b>
+          </span>
+        ),
+        {
+          duration: 20000,
+        }
+      );
+    }
+    load();
+  }, [id]);
+
   return loading ? (
     <div className="spinner-border text-danger" role="status"></div>
   ) : (
     <>
+      <div>
+        <Toaster />
+      </div>
       <div>
         <div id="infosDetails">
           <Link to="/">
@@ -85,8 +113,9 @@ export function DetailsPage() {
           </thead>
         </table>
       </div>
-
       {userList.fruits.map((currentFruit) => {
+        totalQtde = totalQtde + Number(currentFruit.unity);
+
         totalCal =
           totalCal + currentFruit.nutritions.calories * currentFruit.unity;
 
@@ -97,9 +126,6 @@ export function DetailsPage() {
         totalFiber =
           totalFiber + currentFruit.nutritions.fiber * currentFruit.unity;
 
-        console.log(totalCarbo);
-        console.log(totalCal);
-        console.log(totalFiber);
         return (
           <div key={currentFruit._id}>
             <div id="tableDetailsMain">
@@ -128,9 +154,10 @@ export function DetailsPage() {
         <div id="totalTitle">
           <h3>Total</h3>
         </div>
-        <div id="totalCal">{totalCal.toFixed(0)}</div>
-        <div id="totalCarbo">{totalCarbo.toFixed(1)}</div>
-        <div id="totalFiber">{totalFiber.toFixed(1)}</div>
+        <div id="totalQtde">{totalQtde.toFixed(0)} unidades</div>
+        <div id="totalCal">{totalCal.toFixed(0)}Kcal</div>
+        <div id="totalCarbo">{totalCarbo.toFixed(0)}g</div>
+        <div id="totalFiber">{totalFiber.toFixed(0)}g</div>
       </div>
     </>
   );

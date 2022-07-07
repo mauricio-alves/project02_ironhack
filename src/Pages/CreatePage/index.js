@@ -65,6 +65,18 @@ export function CreatePage() {
     setFruits(fruits.filter((currentFruit) => currentFruit.id !== element.id));
   }
 
+  function handleSortAlphabetic() {
+    const clone = [...fruits].sort((a, b) => a.name.localeCompare(b.name));
+    setFruits(clone);
+  }
+
+  function handleByFiber() {
+    const clone = [...fruits].sort(
+      (a, b) => b.nutritions.fiber - a.nutritions.fiber
+    );
+    setFruits(clone);
+  }
+
   return (
     <>
       <div>
@@ -107,7 +119,21 @@ export function CreatePage() {
         </div>
       </form>
       <div id="searchBar">
-        <Search search={search} setSearch={setSearch} />
+        <div className="sort">
+          <span>Ordernar por:</span>
+          <button
+            className="btn btn-light sort-btn"
+            onClick={handleSortAlphabetic}
+          >
+            Nome
+          </button>
+          <button className="btn btn-light sort-btn" onClick={handleByFiber}>
+            Fibras
+          </button>
+        </div>
+        <div>
+          <Search search={search} setSearch={setSearch} />
+        </div>
       </div>
       <div id="bodyCreate">
         {fruits
@@ -131,6 +157,7 @@ export function CreatePage() {
                       name="quantity"
                       value={currentFruit.unity}
                       onChange={handleUnity}
+                      placeholder="0"
                     />
                   </div>
                   <button

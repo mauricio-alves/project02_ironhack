@@ -90,3 +90,23 @@
 #backHomeCreate {
   right: 300px;
 }
+
+.sort {
+  color: aliceblue;
+  font-size: 30px;
+}
+
+.sort span {
+  margin-right: 20px;
+}
+
+.sort-btn {
+  margin-right: 20px;
+}
+
+.sort-btn:hover {
+  font-size: 20px;
+  font-weight: bold;
+  border: 5px solid;
+  background-color: greenyellow;
+}
