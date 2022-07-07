@@ -2,10 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CardIMC } from "../../components/CardIMC";
-<<<<<<< HEAD
-=======
 import "./style.css";
->>>>>>> 0883688665b6c6385ff6b57159b2ccb0984d1b1a
 
 export function Home() {
   const [list, setList] = useState([]);
