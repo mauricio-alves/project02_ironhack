@@ -1,7 +1,6 @@
 #titleHome {
   display: flex;
   justify-content: space-around;
-  /* background-color: rgba(250, 128, 114, 0.786); */
   border-radius: 20px;
   font-family: "Courier New", Courier, monospace;
   font-size: 70px;
@@ -11,12 +10,12 @@
   height: 295px;
   align-items: center;
   margin-bottom: 20px;
-  /* background-repeat: no-repeat; */
-  /* background-size: 100%; */
 }
+
 #linkHome {
   text-decoration: none;
 }
+
 #cardUserHome {
   background-color: antiquewhite;
   margin: 20px;
@@ -26,6 +25,7 @@
   height: 180px;
   text-align: center;
 }
+
 #homeBody {
   display: flex;
   flex-wrap: wrap;
@@ -33,6 +33,7 @@
   margin-left: 290px;
   flex-direction: row-reverse;
 }
+
 .imgGifTitle {
   background-image: url("../../assets/images/randomfruits.gif");
   background-repeat: no-repeat;
@@ -41,8 +42,8 @@
   height: 150px;
   margin: 20px;
   border-radius: 20px;
-  /* box-shadow: 10px 10px 15px black; */
 }
+
 #containerTitleHome {
   display: flex;
   padding: 10px;
@@ -53,21 +54,24 @@
   align-items: center;
   height: 200px;
 }
+
 #cardImcHome {
   position: fixed;
 }
+
 #homeHome {
   display: flex;
 }
+
 #btnDetalhes {
   background-color: coral;
   color: aliceblue;
   width: 150px;
   align-items: center;
   text-align: center;
-
   margin-bottom: 20px;
 }
+
 #card-body {
   height: 70px;
   margin-top: 20px;
