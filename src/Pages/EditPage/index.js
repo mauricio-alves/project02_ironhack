@@ -92,13 +92,30 @@ export function EditPage() {
   }
 
   function addedFruits(element) {
-    setFruits(fruits.filter((currentFruit) => currentFruit.id !== element.id));
+    setFruits(
+      fruits.filter((currentFruit) => currentFruit.name !== element.name)
+    );
   }
 
-  // function deletedFruits(element) {
-  //   setFruits(...fruits, element);
-  //   console.log(fruits);
-  // }
+  function deletedFruits(element) {
+    // setFruits(
+    //   fruits.map((currentFruit) => {
+    //     return currentFruit.filter((currentFruit) => {
+    //       return currentFruit.name !== element.name;
+    //     });
+    //   })
+    // );
+  }
+
+  function handleSortAlphabetic() {
+    setFruits([...fruits].sort((a, b) => a.name.localeCompare(b.name)));
+  }
+
+  function handleByFiber() {
+    setFruits(
+      [...fruits].sort((a, b) => b.nutritions.fiber - a.nutritions.fiber)
+    );
+  }
 
   return (
     <>
@@ -152,7 +169,7 @@ export function EditPage() {
                 id="btnDeleteEditPage"
                 onClick={() => {
                   handleDelete(currentFruit);
-                  // deletedFruits(currentFruit);
+                  deletedFruits(currentFruit);
                 }}
                 className="btn btn-danger"
               >
@@ -163,7 +180,21 @@ export function EditPage() {
         })}
       </div>
       <div id="searchBar">
-        <Search search={search} setSearch={setSearch} />
+        <div className="sort">
+          <span>Ordernar por:</span>
+          <button
+            className="btn btn-light sort-btn"
+            onClick={handleSortAlphabetic}
+          >
+            Nome
+          </button>
+          <button className="btn btn-light sort-btn" onClick={handleByFiber}>
+            Fibras
+          </button>
+        </div>
+        <div>
+          <Search search={search} setSearch={setSearch} />
+        </div>
       </div>
       <div id="bodyCreate">
         {fruits
@@ -187,6 +218,7 @@ export function EditPage() {
                       name="quantity"
                       value={currentFruit.unity}
                       onChange={handleUnity}
+                      placeholder="0"
                     />
                   </div>
                   <button

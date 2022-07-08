@@ -9,16 +9,14 @@ import home from "../../assets/images/home.png";
 
 export function CreatePage() {
   const navigate = useNavigate();
-
   const [search, setSearch] = useState("");
+  const [unity, setUnity] = useState(1);
   const [fruits, setFruits] = useState([]);
   const [form, setForm] = useState({
     owner: "",
     date: "",
     fruits: [],
   });
-
-  const [unity, setUnity] = useState(1);
 
   useEffect(() => {
     async function fetchFruits() {
@@ -62,19 +60,19 @@ export function CreatePage() {
   }
 
   function addedFruits(element) {
-    setFruits(fruits.filter((currentFruit) => currentFruit.id !== element.id));
+    setFruits(
+      fruits.filter((currentFruit) => currentFruit.name !== element.name)
+    );
   }
 
   function handleSortAlphabetic() {
-    const clone = [...fruits].sort((a, b) => a.name.localeCompare(b.name));
-    setFruits(clone);
+    setFruits([...fruits].sort((a, b) => a.name.localeCompare(b.name)));
   }
 
   function handleByFiber() {
-    const clone = [...fruits].sort(
-      (a, b) => b.nutritions.fiber - a.nutritions.fiber
+    setFruits(
+      [...fruits].sort((a, b) => b.nutritions.fiber - a.nutritions.fiber)
     );
-    setFruits(clone);
   }
 
   return (

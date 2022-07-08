@@ -6,6 +6,7 @@ import "./style.css";
 
 export function Home() {
   const [list, setList] = useState([]);
+  
   useEffect(() => {
     async function fetchList() {
       const response = await axios.get(
