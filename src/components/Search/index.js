@@ -12,7 +12,7 @@ export function Search({ search, setSearch }) {
         name="name"
         value={search}
         onChange={handleChange}
-        placeholder='Procure a fruta'
+        placeholder="Procure a fruta"
       />
     </>
   );
