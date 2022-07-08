@@ -12,6 +12,7 @@ export function EditPage() {
   const { id } = useParams();
   const [search, setSearch] = useState("");
   const [fruits, setFruits] = useState([]);
+  // const [filtered, setFiltered] = useState([]);
   const [unity, setUnity] = useState(1);
   const [form, setForm] = useState({
     owner: "",
@@ -202,6 +203,7 @@ export function EditPage() {
               </div>
             );
           })}
+        {console.log(fruits)}
       </div>
     </>
   );

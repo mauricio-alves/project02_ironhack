@@ -30,8 +30,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-left: 290px;
-  flex-direction: row-reverse;
+  margin-left: 300px;
 }
 .imgGifTitle {
   background-image: url("../../assets/images/randomfruits.gif");
